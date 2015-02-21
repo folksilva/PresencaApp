@@ -1,0 +1,15 @@
+<md-content layout="column" flex class="md-padding">
+    <md-input-container>
+        <label>Nome</label>
+        <input ng-model="professor.nome" type="text">
+    </md-input-container>
+    <md-input-container>
+        <label>Inscrição</label>
+        <input ng-model="professor.inscricao" type="text">
+    </md-input-container>
+    <div layout="row" layout-align="space-around center">
+        <md-button class="md-raised" href="#/professores">Voltar</md-button>
+        <md-button class="md-raised" ng-click="destroy()">Excluir</md-button>
+        <md-button class="md-primary md-raised" ng-click="save()">Salvar</md-button>
+    </div>
+</md-content>

@@ -1,0 +1,13 @@
+<md-content layout="column" flex class="md-padding">
+    <md-input-container>
+        <label>Nome</label>
+        <input ng-model="professor.nome" type="text">
+    </md-input-container>
+    <md-input-container>
+        <label>Inscrição</label>
+        <input ng-model="professor.inscricao" type="text">
+    </md-input-container>
+    <md-button class="md-primary md-raised" ng-click="save()">Salvar</md-button>
+    <p></p>
+    <md-button href="#/professores">Cancelar</md-button>
+</md-content>
