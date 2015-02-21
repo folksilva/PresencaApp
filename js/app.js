@@ -56,12 +56,32 @@ app.config(['$routeProvider', function ($routeProvider) {
 /**
  * Controle principal da aplicação
  */
-app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
+app.controller('AppCtrl', ['$scope', '$mdSidenav', '$mdDialog', function($scope, $mdSidenav, $mdDialog) {
+    var chave = 'Presenca2015';
+    $scope.title = 'Iniciando...';
+    $scope.chave = null;
+    $scope.liberado = false;
     $scope.toggleNav = function(menuId) {
         $mdSidenav(menuId).toggle();
-    }
-    $scope.title = 'Iniciando...';
+    };
     $scope.setTitle = function (title){
         $scope.title = title;
+    };
+
+    $mdDialog.show({
+        controller: 'UnlockCtrl',
+        templateUrl: 'views/unlock.html',
+        clickOutsideToClose: false,
+        escapeToClose: false
+    }).then(function(c) {
+        if (c === chave) {
+            $scope.liberado = true;
+        }
+    }, null);
+}]);
+
+app.controller('UnlockCtrl', ['$scope', '$mdDialog', function ($scope, $mdDialog) {
+    $scope.unlock = function () {
+        $mdDialog.hide($scope.chave);
     }
 }]);
